@@ -1,5 +1,9 @@
 <template>
     <div class=" w-full max-w-[21.125rem] h-[21.125rem] rounded-[0.625rem] bg-[#D9D9D9] overflow-hidden relative">
+        <div class=" w-full h-full">
+            <img :src="image" alt="" class=" w-full h-full object-cover">
+        </div>
+       
         <div class=" w-full flex items-center justify-between absolute bottom-4 px-4">
             <button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
@@ -20,3 +24,9 @@
         </div>
     </div>
 </template>
+
+<script setup>
+    const props = defineProps({
+        image: String
+    })
+</script>
