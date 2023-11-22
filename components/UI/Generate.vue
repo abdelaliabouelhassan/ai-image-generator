@@ -12,11 +12,11 @@
             placeholder="✏️ Enter a description of what you want the AI to create"
             class="p-4 outline-none h-[5.75rem] w-full border-2 border-black rounded-[0.625rem]"
           ></textarea>
-          <div
+          <button @click="GenerateRandomPrompt"
             class="absolute top-6 right-4 bg-[#D9D9D9] w-[2.6875rem] h-[2.6875rem] rounded-[0.625rem] flex"
           >
             <div class="m-auto font-Inter text-2xl font-normal">🎲</div>
-          </div>
+          </button>
         </div>
         <button
           :disabled="loading"
@@ -123,6 +123,7 @@
 <script setup>
 import ImageCard from "~/components/UI/ImageCard.vue";
 import axios from "axios";
+const randPrompts = ref([]);
 
 const props = defineProps({
   pgenerate: {
@@ -450,7 +451,7 @@ const prompt = ref("");
 const loading = ref(false);
 const Images = ref([]);
 const tokenKey = 'gCLp2iRbF4INN9VE0IRaUptNYhQbUmrHM7XrjgkrYN7ESHLDLnujxkFEyW1p';
-
+const lang = ref('en')
 
 
 const fetchResult = (response) => {
@@ -555,6 +556,29 @@ const Generate = () => {
       loading.value = false;
     });
 };
+
+
+const getRandPrompt = async (lang) => {
+    const url = '/prompts/' + lang.value + '_rand.json';
+    const response = await fetch(url);
+    const data = await response.json();
+    randPrompts.value = data
+}
+
+const GenerateRandomPrompt = () => {
+  const rand = Math.floor(Math.random() * randPrompts.value.length);
+  prompt.value = randPrompts.value[rand]
+}
+
+
+  onMounted(() => {
+    const url = window.location.href;
+    const urlLang = url.split("/")[3];
+    if (urlLang) {
+      lang.value = urlLang;
+    }
+    getRandPrompt(lang)
+  })
 </script>
 
 

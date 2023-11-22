@@ -29,6 +29,7 @@ const langs = ref([
   { name: "IT", value: "it" },
   { name: "JP", value: "jp" },
   { name: "NL", value: "nl" },
+  { name: "PT", value: "pt" },
   { name: "RU", value: "ru" },
   { name: "TR", value: "tr" },
 ]);
