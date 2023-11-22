@@ -1,5 +1,5 @@
 <template>
-    <div class=" w-full max-w-[21.125rem] h-[21.125rem] rounded-[0.625rem] bg-[#D9D9D9] overflow-hidden relative">
+    <div class=" w-full h-full rounded-[0.625rem] bg-[#D9D9D9] overflow-hidden relative">
         <div class=" w-full h-full">
             <img :src="image" alt="" class=" w-full h-full object-cover">
         </div>

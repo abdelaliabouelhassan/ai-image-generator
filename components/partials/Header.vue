@@ -2,7 +2,7 @@
   <div class="w-full max-w-[64.8125rem] mx-auto">
     <div class="w-full flex items-center justify-between pt-4">
       <nuxt-link to="/">
-        <img src="/images/logo.jpg" alt="logo" />
+        <span class=" text-black font-Inter text-2xl font-normal">art-generator.ai</span>
       </nuxt-link>
       <div>
         <select
