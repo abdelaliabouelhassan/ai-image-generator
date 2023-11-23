@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   modules: ['nuxt-gtag'],
   gtag: {
-    id: 'GTM-PHB7TPTC',
+    id: 'G-MM60XR69RN',
     config: {
       page_title: 'AI Image Generator | Free Online Text-to-Image Neural Network',
     }
