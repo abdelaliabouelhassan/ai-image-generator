@@ -485,6 +485,17 @@ const fetchResult = (response) => {
 }
 
 const Generate = () => {
+
+  useTrackEvent({
+    event: "generate",
+    properties: {
+      prompt: prompt.value,
+      style: style.value,
+      shape: shape.value,
+      number: number.value,
+    },
+  });
+  
   let width = 512;
   let height = 512;
 
@@ -494,7 +505,8 @@ const Generate = () => {
     loading.value = false;
     return;
   }
-
+ 
+  
 
   if(shape.value == 'portrait'){
      width = 510;
